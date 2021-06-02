@@ -1,0 +1,118 @@
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<a href ="/mainpage">Перейти к главной странице</a>
+<br/>
+<form action="/profile" method="post" enctype="multipart/form-data">
+    <input type="text" name="firstname" placeholder="Введите имя"/>
+    <br/>
+    <input type="text" name="surname" placeholder="Введите фамилию"/>
+    <br/>
+    <label><b>Выберите дату рождения</b></label>
+    <br/>
+    <input type="date" name="birthDate" placeholder="Введите дату рождения">
+    <br/>
+    <br/>
+    <label><b>Выберите пол</b></label>
+    <br/>
+    <div class="sex">
+        <input id="sex0" type="radio" value="мужской" name="sex">
+        <label for="sex0">мужской</label>
+        <input id="sex1" type="radio" value="женский" name="sex">
+        <label for="sex1">женский</label>
+        <input id="sex2" type="radio" value="не определился" name="sex">
+        <label for="sex2">не определился</label>
+        <input id="sex3" type="radio" value="боевой вертолет" name="sex"checked>
+        <label for="sex3">боевой вертолет</label>
+        <input id="sex4" type="radio" value="другое" name="sex">
+        <label for="sex4">другое</label>
+    </div>
+    <br/>
+    <input type="text" name="city" placeholder="Введите город проживания">
+<!--    <input type="text" name="photoName" placeholder="Введите город проживания">-->
+<br/>
+<!--        private String photoName;-->
+    <input type="text" name="workPlace" placeholder="Введите место работы">
+    <br/>
+    <input type="text" name="position" placeholder="Введите занимаемую должность">
+    <br/>
+    <input type="text" name="bio" placeholder="Опишите себя несколькими строкам">
+    <br/>
+    <label><b>Выберите сферу интересов</b></label>
+    <br/>
+    <div class="tag">
+        <input id="sex0" type="checkbox" value="C" name="tag">
+        <label for="sex0">C</label>
+        <input id="sex1" type="checkbox" value="C++" name="tag">
+        <label for="sex1">C++</label>
+        <input id="sex2" type="checkbox" value="Java" name="tag"checked>
+        <label for="sex2">Java</label>
+        <input id="sex3" type="checkbox" value="Python" name="tag">
+        <label for="sex3">Python</label>
+        <input id="sex4" type="checkbox" value="JavaScript" name="tag">
+        <label for="sex4">JavaScript</label>
+        <input id="sex4" type="checkbox" value="Frontend" name="tag">
+        <label for="sex4">Frontend</label>
+        <input id="sex4" type="checkbox" value="Backend" name="tag">
+        <label for="sex4">Backend</label>
+        <input id="sex4" type="checkbox" value="Iot" name="tag">
+        <label for="sex4">Iot</label>
+        <input id="sex4" type="checkbox" value="Fullstack" name="tag">
+        <label for="sex4">Fullstack</label>
+        <input id="sex4" type="checkbox" value="Devops" name="tag">
+        <label for="sex4">Devops</label>
+        <input id="sex4" type="checkbox" value="Gamedev" name="tag">
+        <label for="sex4">Gamedev</label>
+        <input id="sex4" type="checkbox" value="ищу друга" name="tag">
+        <label for="sex4">ищу друга</label>
+        <input id="sex4" type="checkbox" value="ищу работу" name="tag"checked>
+        <label for="sex4">ищу работу</label>
+        <input id="sex4" type="checkbox" value="ищу работника" name="tag">
+        <label for="sex4">ищу работника</label>
+    </div>
+        <br/>
+    <label><b>Выберите фото для своего профиля</b></label>
+    <br/>
+    <input type="file" name="file">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <br/>
+    <button type="submit">Создать</button>
+</form>
+{{#profile}}
+    {{profile}}
+{{/profile}}
+{{#error}}
+    {{#error.firstnameError}}
+        {{error.firstnameError}}
+    {{/error.firstnameError}}
+    <br/>
+    {{#error.surnameError}}
+        {{error.surnameError}}
+    {{/error.surnameError}}
+    <br/>
+    {{#error.birthDateError}}
+        {{error.birthDateError}}
+    {{/error.birthDateError}}
+    <br/>
+    {{#error.cityError}}
+        {{error.cityError}}
+    {{/error.cityError}}
+    <br/>
+    {{#error.workPlaceError}}
+        {{error.workPlaceError}}
+    {{/error.workPlaceError}}
+    <br/>
+    {{#error.positionError}}
+        {{error.positionError}}
+    {{/error.positionError}}
+    <br/>
+    {{#error.bioError}}
+        {{error.bioError}}
+    {{/error.bioError}}
+    <br/>
+{{/error}}
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+<form action="/logout" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <input type="submit" value="Выйти"/>
+</form>
+<a href ="/mes">Написать сообщение</a>
+<a href ="/mainpage">Перейти к главной странице</a>
+<br/>
+<label>Выберите пользователя чтобы посмотреть переписку с ним</label>
+<br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Имя</th>
+        </tr>
+{{#users}}
+<tr>
+    <td><a href="/chat/list?username={{username}}">{{username}}</a></td>
+</tr>
+{{/users}}
+    </table>
+</div>
+<br/>
+{{#mess}}
+    <p>Получатель {{receiver}}</p>
+    <p>Дата {{data}}</p>
+    <p>{{mes}}</p>
+{{/mess}}
+</body>
+</html>

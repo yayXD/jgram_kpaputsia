@@ -1,0 +1,17 @@
+<body>
+<div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+
+<a href="/registration">Регистрация</a>
+<br/>
+<a href ="/login">Вход</a>
+<br/>
+<a href ="/chat">Перейти в чат</a>
+<br/>
+<a href ="/mainpage">Перейти к главной странице</a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="/logout" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <input type="submit" value="Выйти"/>
+</form>
+    <form action="/mes" method="post">
+        <label>Выберите комму вы хотите написать сообщение</label>
+        <p><select id="type" name="receiv">
+{{#users}}
+    <option value={{username}}>{{username}}</option>
+{{/users}}
+        <br/>
+        </select></p>
+        <input type="text" name="mes" placeholder="Введите текст сообщения"/>
+        <br/>
+<input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <button type="submit">Отправить</button>
+    </form>
+{{#error}}
+    {{error.mesError}}
+{{/error}}
+</body>
+</html>

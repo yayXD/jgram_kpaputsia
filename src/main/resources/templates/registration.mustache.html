@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body>
+<div>
+    <form action="/registration" method="post">
+        <input type="text" name="username" placeholder="Введите логин" />
+        <br/>
+        <input type="password" name="password" placeholder="Введите пароль"/>
+        <br/>
+        <input type="password" name="password2" placeholder="Подтвердите пароль"/>
+        <br/>
+        <input type="email" name="email" placeholder="Введите email">
+        <br/>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <button type="submit">Зарегистрироваться</button>
+        <br/>
+    </form>
+</div>
+{{#mes}}
+    {{mes}}
+{{/mes}}
+{{#error}}
+    {{#error.usernameError}}
+        {{error.usernameError}}
+    {{/error.usernameError}}
+    <br/>
+    {{#error.passwordError}}
+        {{error.passwordError}}
+    {{/error.passwordError}}
+    <br/>
+    {{#error.password2Error}}
+        {{error.password2Error}}
+    {{/error.password2Error}}
+    <br/>
+    {{#error.emailError}}
+        {{error.emailError}}
+    {{/error.emailError}}
+{{/error}}
+<br/>
+<a href="/greeting">Вернуться</a>
+</body>
+</html>

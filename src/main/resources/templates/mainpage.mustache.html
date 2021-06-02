@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="/logout" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <input type="submit" value="Выйти"/>
+</form>
+<a href ="/profile">Создать профиль</a>
+<br/>
+<a href="/chat">Перейти в чат</a>
+<br/>
+<form action="/mainpage/list/like" method="post">
+    <br/>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <br/>
+    <button type="submit">Посмотреть всех кто тебя залайкал</button>
+</form>
+<form action="/mainpage/list/Ili" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <button type="submit">Посмотреть всех кого ты залайкал</button>
+</form>
+<br/>
+<form action="/mainpage/makePhoto" method="post" enctype="multipart/form-data">
+    <input type="file" name="picture">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <button type="submit">Загрузить еще фото</button>
+    {{#picture}}
+        {{picture}}
+    {{/picture}}
+</form>
+<br/>
+<a href ="/mainpage/mypicture">Просмотреть мои фото</a>
+<br/>
+{{#mypictures}}
+    <div>
+        <img src="/img/{{pictureName}}">
+    </div>
+{{/mypictures}}
+<label>Найти пользователей по</label>
+<br/>
+<form action="/mainpage/search" method="post">
+<div class="parameter">
+    <input id="sex0" type="radio" value="firstname" name="parameter">
+    <label for="sex0">имя</label>
+    <input id="sex1" type="radio" value="surname" name="parameter">
+    <label for="sex1">фамилия</label>
+    <input id="sex2" type="radio" value="tag" name="parameter">
+    <label for="sex2">тег</label>
+    <input id="sex3" type="radio" value="city" name="parameter"checked>
+    <label for="sex3">город</label>
+    <input id="sex4" type="radio" value="workPlace" name="parameter">
+    <label for="sex4">место работы</label>
+    <input id="sex4" type="radio" value="position" name="parameter">
+    <label for="sex4">должность</label>
+</div>
+    <br/>
+<input type="text" name="search" placeholder="Что искать">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <br/>
+    <button type="submit">Искать</button>
+</form>
+{{#profile}}
+    <p>Имя {{firstname}}</p>
+    <p>Фамилия {{surname}}</p>
+    <p>Возраст {{birthDate}}</p>
+    <p>Пол {{sex}}</p>
+    <p>Город {{city}}</p>
+    <p>Место работы {{workPlace}}</p>
+    <p>Должность {{position}}</p>
+    <p>Кратко о себе {{bio}}</p>
+    <div>
+        <img src="/img/{{photoName}}">
+    </div>
+{{/profile}}
+<br/>
+{{#tag}}
+    <label><b>Тэги</b></label>
+        {{tagName}}
+{{/tag}}
+{{#profiles}}
+    <p>Имя {{firstname}}</p>
+    <p>Фамилия {{surname}}</p>
+    <p>Возраст {{birthDate}}</p>
+    <p>Пол {{sex}}</p>
+    <p>Город {{city}}</p>
+    <p>Место работы {{workPlace}}</p>
+    <p>Должность {{position}}</p>
+    <p>Кратко о себе {{bio}}</p>
+    <div>
+        <img src="/img/{{photoName}}">
+    </div>
+    <form action="/mainpage/like" method="post">
+        <br/>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <input type="hidden" name="photoName" value="{{photoName}}"/>
+        <br/>
+        <button type="submit">Лайкнуть</button>
+    </form>
+{{/profiles}}
+{{#likers}}
+    <p>Имя {{firstname}}</p>
+    <p>Фамилия {{surname}}</p>
+    <p>Возраст {{birthDate}}</p>
+    <p>Пол {{sex}}</p>
+    <p>Город {{city}}</p>
+    <p>Место работы {{workPlace}}</p>
+    <p>Должность {{position}}</p>
+    <p>Кратко о себе {{bio}}</p>
+    <div>
+        <img src="/img/{{photoName}}">
+    </div>
+{{/likers}}
+{{#ILI}}
+    <p>Имя {{firstname}}</p>
+    <p>Фамилия {{surname}}</p>
+    <p>Возраст {{birthDate}}</p>
+    <p>Пол {{sex}}</p>
+    <p>Город {{city}}</p>
+    <p>Место работы {{workPlace}}</p>
+    <p>Должность {{position}}</p>
+    <p>Кратко о себе {{bio}}</p>
+    <div>
+        <img src="/img/{{photoName}}">
+    </div>
+{{/ILI}}
+</body>
+</html>
